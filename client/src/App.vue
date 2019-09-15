@@ -1,9 +1,11 @@
 <template>
-  <div id="app">
-    <header>
+  <div id="app" class="todos">
+    <header class="todos__header">
       <NewTodo :send-todo="sendTodo" />
-      <Todos :todos="todos" :update-todo="updateTodo" :remove-todo="removeTodo" />
     </header>
+    <div class="todos__body">
+      <Todos :todos="todos" :update-todo="updateTodo" :remove-todo="removeTodo" />
+    </div>
   </div>
 </template>
 
@@ -62,5 +64,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.todos {
+  width: 500px;
+  margin: 0 auto;
 }
 </style>

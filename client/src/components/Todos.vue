@@ -31,6 +31,11 @@ export default {
   }
 };
 </script>
-<style lang="sass" scoped>
-
+<style lang="scss" scoped>
+.todos {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+}
 </style>

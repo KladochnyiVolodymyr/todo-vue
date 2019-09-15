@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="formSubmit">
-    <input type="text" v-model="title" />
+    <input class="new-todo" type="text" v-model="title" placeholder="What needs to be done?" />
   </form>
 </template>
 <script>
@@ -26,6 +26,13 @@ export default {
   }
 };
 </script>
-<style lang="sass" scoped>
-
+<style lang="scss" scoped>
+.new-todo {
+  padding: 16px 16px 16px 60px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
 </style>

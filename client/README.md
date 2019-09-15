@@ -36,7 +36,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Todo
 
-- Delete todo
 - Check / Uncheck All
 - Filters with Routing
 - How many items are left
