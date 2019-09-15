@@ -38,7 +38,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 - Check / Uncheck All
 - Filters with Routing
-- How many items are left
 - Edit todo title
 - Disable new item form while adding new todo
 - Show preloader while todos are loading

@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-count">{{count}} items left</div>
+  <div class="todo-count">{{count}} item{{count != 1 ? "s" : ""}} left</div>
 </template>
 <script>
 export default {
