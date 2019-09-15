@@ -1,6 +1,10 @@
 <template>
   <div id="app" class="todos">
     <header class="todos__header">
+      <div class="todos__check-all" @click="checkAll">
+        &#11167;
+        <span>Check All</span>
+      </div>
       <NewTodo :send-todo="sendTodo" />
     </header>
     <section class="todos__body">
@@ -61,6 +65,23 @@ export default {
       deleteTodo(id).then(deletedTodo => {
         this.todos = this.todos.filter(todo => todo._id !== id);
       });
+    },
+    сheckAllType(type) {
+      this.todos.map(todo => {
+        todo.isCompleted = type;
+        updateTodo({
+          _id: todo._id,
+          title: todo.title,
+          isCompleted: type
+        });
+      });
+    },
+    checkAll() {
+      if (this.getTodoLeft != 0) {
+        this.сheckAllType(true);
+      } else {
+        this.сheckAllType(false);
+      }
     }
   }
 };
@@ -78,8 +99,30 @@ export default {
 .todos {
   width: 500px;
   margin: 0 auto;
+  &__check-all {
+    color: #ccc;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    &:hover {
+      span {
+        display: block;
+      }
+    }
+    span {
+      font-size: 10px;
+      position: absolute;
+      top: -5px;
+      left: -10px;
+      width: 50px;
+      display: none;
+    }
+  }
   &__header {
     margin-bottom: 10px;
+    position: relative;
   }
   &__body {
     border: 1px solid #ccc;

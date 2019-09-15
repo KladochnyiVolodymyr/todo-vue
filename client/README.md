@@ -36,7 +36,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Todo
 
-- Check / Uncheck All
 - Filters with Routing
 - Edit todo title
 - Disable new item form while adding new todo
