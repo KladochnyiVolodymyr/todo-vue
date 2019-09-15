@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="todos">
+    <div class="preloader" v-if="this.preloader">Loading...</div>
     <header class="todos__header">
       <div class="todos__check-all" @click="checkAll">
         &#11167;
@@ -8,6 +9,7 @@
       <NewTodo :send-todo="sendTodo" />
     </header>
     <section class="todos__body">
+      <p v-if="!todos.length">No todo item</p>
       <Todos :todos="todos" :update-todo="updateTodo" :remove-todo="removeTodo" />
     </section>
     <footer class="todos__footer">
@@ -31,12 +33,14 @@ export default {
   },
   data() {
     return {
-      todos: []
+      todos: [],
+      preloader: true
     };
   },
   mounted() {
     getTodos().then(todos => {
       this.todos = todos;
+      this.preloader = false;
     });
   },
   computed: {
@@ -137,5 +141,15 @@ export default {
     box-sizing: border-box;
     padding: 10px;
   }
+}
+.preloader {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 100px;
+  background: #fff;
+  z-index: 1;
 }
 </style>

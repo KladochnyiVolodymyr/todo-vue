@@ -47,6 +47,11 @@ export default {
   margin-bottom: 10px;
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0px;
+  }
   &__check {
     margin-right: 20px;
     width: 20px;

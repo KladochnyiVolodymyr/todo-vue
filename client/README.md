@@ -39,4 +39,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Filters with Routing
 - Edit todo title
 - Disable new item form while adding new todo
-- Show preloader while todos are loading
