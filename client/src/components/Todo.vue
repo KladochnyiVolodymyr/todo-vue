@@ -2,6 +2,7 @@
   <div class="todo">
     <input type="checkbox" :checked="isCompleted" @change="changeStatus" />
     <div>{{title}}</div>
+    <button class="todo__delete" @click="deleteTodo"></button>
   </div>
 </template>
 
@@ -19,6 +20,9 @@ export default {
     },
     updateTodo: {
       type: Function
+    },
+    removeTodo: {
+      type: Function
     }
   },
   methods: {
@@ -28,6 +32,9 @@ export default {
         title: this.title,
         isCompleted: !this.isCompleted
       });
+    },
+    deleteTodo() {
+      this.removeTodo(this.id);
     }
   }
 };
@@ -36,5 +43,10 @@ export default {
 <style lang="scss" scoped>
 .todo {
   display: flex;
+  &__delete {
+    &:after {
+      content: "×";
+    }
+  }
 }
 </style>

@@ -7,6 +7,7 @@
       :title="todo.title"
       :is-completed="todo.isCompleted"
       :update-todo="updateTodo"
+      :remove-todo="removeTodo"
     />
   </div>
 </template>
@@ -22,6 +23,9 @@ export default {
       type: Array
     },
     updateTodo: {
+      type: Function
+    },
+    removeTodo: {
       type: Function
     }
   }

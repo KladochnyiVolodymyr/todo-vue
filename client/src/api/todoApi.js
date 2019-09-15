@@ -15,3 +15,8 @@ export function updateTodo(todo) {
     .put(`http://localhost:3000/_api/tasks/${todo._id}`, todo)
     .then(handleResponse);
 }
+export function deleteTodo(id) {
+  return axios
+    .delete(`http://localhost:3000/_api/tasks/${id}`)
+    .then(handleResponse);
+}

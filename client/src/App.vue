@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <NewTodo :send-todo="sendTodo" />
-      <Todos :todos="todos" :update-todo="updateTodo" />
+      <Todos :todos="todos" :update-todo="updateTodo" :remove-todo="removeTodo" />
     </header>
   </div>
 </template>
@@ -10,7 +10,7 @@
 <script>
 import NewTodo from "./components/NewTodo";
 import Todos from "./components/Todos";
-import { getTodos, createTodo, updateTodo } from "./api/todoApi";
+import { getTodos, createTodo, updateTodo, deleteTodo } from "./api/todoApi";
 
 export default {
   name: "app",
@@ -43,6 +43,11 @@ export default {
             return todo;
           }
         });
+      });
+    },
+    removeTodo(id) {
+      deleteTodo(id).then(deletedTodo => {
+        this.todos = this.todos.filter(todo => todo._id !== id);
       });
     }
   }
