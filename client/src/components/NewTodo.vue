@@ -33,6 +33,6 @@ export default {
   border: 1px solid #ccc;
   border-radius: 10px;
   box-sizing: border-box;
-  margin-bottom: 10px;
+  outline: none;
 }
 </style>

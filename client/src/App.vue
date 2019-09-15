@@ -3,22 +3,27 @@
     <header class="todos__header">
       <NewTodo :send-todo="sendTodo" />
     </header>
-    <div class="todos__body">
+    <section class="todos__body">
       <Todos :todos="todos" :update-todo="updateTodo" :remove-todo="removeTodo" />
-    </div>
+    </section>
+    <footer class="todos__footer">
+      <TodoCount :count="getTodoLeft" />
+    </footer>
   </div>
 </template>
 
 <script>
 import NewTodo from "./components/NewTodo";
 import Todos from "./components/Todos";
+import TodoCount from "./components/TodoCount";
 import { getTodos, createTodo, updateTodo, deleteTodo } from "./api/todoApi";
 
 export default {
   name: "app",
   components: {
     NewTodo,
-    Todos
+    Todos,
+    TodoCount
   },
   data() {
     return {
@@ -29,6 +34,11 @@ export default {
     getTodos().then(todos => {
       this.todos = todos;
     });
+  },
+  computed: {
+    getTodoLeft() {
+      return this.todos.filter(todo => todo.isCompleted !== true).length;
+    }
   },
   methods: {
     sendTodo(title) {
@@ -56,7 +66,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -68,5 +78,21 @@ export default {
 .todos {
   width: 500px;
   margin: 0 auto;
+  &__header {
+    margin-bottom: 10px;
+  }
+  &__body {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  &__footer {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+  }
 }
 </style>

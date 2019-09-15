@@ -1,5 +1,5 @@
 <template>
-  <div class="todos">
+  <div class="todo-list">
     <Todo
       v-for="todo in todos"
       :key="todo._id"
@@ -32,10 +32,4 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.todos {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-sizing: border-box;
-  padding: 10px;
-}
 </style>
